@@ -1,0 +1,20 @@
+<html>
+<head>
+	<script language="javascript" type="text/javascript" src = "lib/jquery-min.js"> </script>
+	<script language="javascript" type="text/javascript" src = "lib/aop.js"> </script>
+	<script language="javascript" type="text/javascript" src="src/tst.js"></script>
+</head>
+<body>
+	<h1>Hello world</h1>
+	<script language="javascript" type="text/javascript">
+		co_context = {
+			"targets" : [custom],
+		}
+	</script>
+	<script language="javascript" type="text/javascript" src="src/co.js"></script>
+	<script>
+	custom.testme();
+		custom.test2();
+	</script>
+</body>
+</html?
