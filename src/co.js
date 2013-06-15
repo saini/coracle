@@ -21,17 +21,18 @@ var co_context = co_context || {'targets':[]};
 		return methods;
 	};
 
-	var prepareExecutionSet = function(){
-		var sendData = {};
-		var execution_set = [];
-		sendData.time = (new Date).getTime();// time since epoch
+	var prepareAndSendExecutionSet = function(){
+		//var execution_set = [];
+		send_time = (new Date).getTime();// time since epoch
 		var storage = window.localStorage;
 		for (key in storage){
 			if(key.indexOf(key_coracle) == 0){
 				try{
 					var obj = $.parseJSON(storage[key])
-					execution_set.push(obj);
+					obj.coracle_time = send_time;
+					//execution_set.push(obj);
 					delete window.localStorage[key];
+					sendData(obj)
 					//debugme(obj.method);
 				}catch(err){
 					debugme("exception caught");
@@ -41,21 +42,18 @@ var co_context = co_context || {'targets':[]};
 				debugme("ignore key: "+ key);
 			}
 		}
-		sendData.execution_set=execution_set;
-		//window.localStorage.clear();
-		return sendData;
 	};
 
 	var sendExecutionInfo = function(){
-		var data = prepareExecutionSet();
-		sendData(data);
+		prepareAndSendExecutionSet();
+		//sendData(data);
 	};
 
 	var sendData = function(data){
 		debugme("inside sendData");
 		var prod = "http://crowdoracle.appspot.com/";
 		var loc = "http://localhost:8080/"
-		if(null!=data && data.execution_set.length>0){
+		if(null!=data){
 			debugme(JSON.stringify(data));
 			var request = $.ajax({
 				url: prod,
