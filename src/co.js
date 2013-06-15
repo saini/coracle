@@ -37,6 +37,7 @@ var co_context = co_context || {'targets':[]};
 					debugme("exception caught");
 				}
 			}else{
+				// ignore these keys
 				debugme("ignore key: "+ key);
 			}
 		}
