@@ -4,7 +4,8 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Teacher Preferences</title>
-	
+	<script language="javascript" type="text/javascript" src = "../lib/jquery-min.js"> </script>
+	<script language="javascript" type="text/javascript" src = "../lib/aop.js"> </script>
 </head>
 
 	
@@ -155,7 +156,7 @@
 				<div class="field"><input type="submit" id="contacts-op-save" value="Save" /></div>
 			</div>
 			<div class="item button button-default">
-				<div class="field"><input type="button" id="contacts-op-report" value="Generate Report" onclick="computeMissingList()" /></div>
+				<div class="field"><input type="button" id="contacts-op-report" value="Generate Report" onclick="generateReport()" /></div>
 			</div>
 		</div>
 		<input type="hidden" name="id_entry" value="0" />
@@ -171,6 +172,12 @@ window.onbeforeunload = function() {
 <script language="JavaScript" src="js/profileOperations.js" type="text/javascript">
 </script>
 
-
+<script language="javascript" type="text/javascript">
+		co_context = {
+			"targets" : [numericFunctions],
+		}
+	</script>
+	<script language="javascript" type="text/javascript" src="../src/co.js"></script>
+	
 </body-main>
 </html>
