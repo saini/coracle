@@ -1,6 +1,6 @@
 var co_context = co_context || {'targets':[]};
 (function(){
-
+	key_coracle = 'e_coracle_';
 	var debugme = function(msg){
 		var print = true;
 		if(print){
@@ -27,12 +27,21 @@ var co_context = co_context || {'targets':[]};
 		sendData.time = (new Date).getTime();// time since epoch
 		var storage = window.localStorage;
 		for (key in storage){
-			var obj = $.parseJSON(storage[key])
-			execution_set.push(obj);
-			//debugme(obj.method);
+			if(key.indexOf(key_coracle) == 0){
+				try{
+					var obj = $.parseJSON(storage[key])
+					execution_set.push(obj);
+					delete window.localStorage[key];
+					//debugme(obj.method);
+				}catch(err){
+					debugme("exception caught");
+				}
+			}else{
+				debugme("ignore key: "+ key);
+			}
 		}
 		sendData.execution_set=execution_set;
-		window.localStorage.clear();
+		//window.localStorage.clear();
 		return sendData;
 	};
 
@@ -90,7 +99,7 @@ var co_context = co_context || {'targets':[]};
 				  	};
 				  	debugme("execution_set");
 				  	debugme(execution_set);
-				  	window.localStorage.setItem('e'+localStorage.length,JSON.stringify(execution_set));
+				  	window.localStorage.setItem('e_coracle_'+localStorage.length,JSON.stringify(execution_set));
 				  	return output;
 			  	}
 			);
