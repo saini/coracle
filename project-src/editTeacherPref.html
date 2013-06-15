@@ -1,0 +1,176 @@
+<!doctype html>
+<link rel="stylesheet" type="text/css" href="style.css">
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Teacher Preferences</title>
+	
+</head>
+
+	
+
+
+
+
+<body-main>
+
+
+	
+<h1>Substitute Teachers</h1>
+	<table id="Substitutes-table">
+		<tr id="Substitutes-head">
+			<th>#</th>
+			<th>Name</th>
+			<th>PIN</th>
+			<th>SSN</th>
+			<th>Phone</th>
+			<th>Rating</th>
+			<th>Seniority Years</th>
+			<th>Acceptable Subjects</th>
+			<th>Preferred Subjects</th>
+			<th>Acceptable Grades</th>
+			<th>Preferred Grades</th>
+			<th>Acceptable Schools</th>
+			<th>Preferred Schools</th>
+			<th>Teachers Substituted</th>
+			<th>Actions</th>
+		</tr>
+	</table>
+
+	<form id="Substitutes-form">
+		<div class="item text">
+			<label>Name:</label>
+			<div class="field"><input type="text" name="sub_name" /></div>
+		</div>
+		<div class="item text">
+			<label>PIN:</label>
+			<div class="field"><input type="text" name="sub_PIN" maxlength="4" /></div>
+		</div>
+		<div class="item text">
+			<label>SSN:</label>
+			<div class="field"><input type="text" name="sub_SSN" maxlength="9" /></div>
+		</div>
+		<div class="item text">
+			<label>Phone:</label>
+			<div class="field"><input type="text" name="sub_phone" maxlength="10" /></div>
+		</div>
+		<div class="item text">
+			<label>Rating:</label>
+			<div class="field"><input type="text" name="sub_rating" maxlength="1" /></div> &nbsp;&nbsp;<i>Options:1,2,3</i>
+		</div>
+		<div class="item text">
+			<label>Seniority Years:</label>
+			<div class="field"><input type="text" name="sub_seniority" maxlength="2" /></div> 
+		</div>
+		<div class="item text">
+			<label>Acceptable Subjects:</label>
+			<div class="field"><input type="text" name="sub_acceptSubject" /> </div>&nbsp;&nbsp;<i>Options:"Home room", "Science", "Math", "English", "Social Studies", "Physical Ed", and "Arts / Music", "World Language"</i>
+		</div>
+		<div class="item text">
+			<label>Preferred Subjects:</label>
+			<div class="field"><input type="text" name="sub_prefSubject" /></div> 
+		</div>
+		<div class="item text">
+			<label>Acceptable Grade Levels:</label>
+			<div class="field"><input type="text" name="sub_acceptGradeLevel" /> </div>&nbsp;&nbsp;<i>Options: K,J,H,A</i> 
+		</div>
+		<div class="item text">
+			<label>Preferred Grade Levels:</label>
+			<div class="field"><input type="text" name="sub_prefGradeLevel" /> 
+		</div>
+		<div class="item text">
+			<label>Acceptable Schools:</label>
+			<div class="field"><input type="text" name="sub_acceptSchool" /></div>
+		</div>
+		<div class="item text">
+			<label>Preferred Schools:</label>
+			<div class="field"><input type="text" name="sub_prefSchool" /></div>
+		</div>
+		<div class="item text">
+			<label>Teachers Substituted:</label>
+			<div class="field"><input type="text" name="sub_teachersSubstituted" /></div>&nbsp;&nbsp;<i>Name1,dd/MM/yyyy,Name2,dd/MM/yyyy</i>
+		</div>
+		
+		<div class="button-wrapper">
+			<div class="item button">
+				<div class="field"><input type="button" id="Substitutes-op-discard" value="Discard" /></div>
+			</div>
+			<div class="item button button-default">
+				<div class="field"><input type="submit" id="Substitutes-op-save" value="Save" /></div>
+			</div>
+		</div>
+		<input type="hidden" name="sub_id_entry" value="0" />
+	</form>
+
+<script language="JavaScript" src="js/substitutePreferences.js" type="text/javascript">
+</script>
+
+
+	<h1>Hired Teachers</h1>
+	<table id="contacts-table">
+		<tr id="contacts-head">
+			<th>#</th>
+			<th>Name</th>
+			<th>PIN</th>
+			<th>Subject</th>
+			<th>Grade</th>
+			<th>School</th>
+			<th>Missing Class</th>
+			<th>Actions</th>
+		</tr>
+	</table>
+
+	<form id="contacts-form">
+		<div class="item text">
+			<label>Name:</label>
+			<div class="field"><input type="text" name="hired_name" /></div>
+		</div>
+		<div class="item text">
+			<label>PIN:</label>
+			<div class="field"><input type="text" name="hired_SSN"  maxlength="4" />
+		</div>
+		<div class="item text">
+			<label>Subject:</label>
+			<div class="field"><input type="text" name="hired_subject" /></div>
+		</div>
+		<div class="item text">
+			<label>Grade:</label>
+			<div class="field"><input type="text" name="hired_grade" maxlength="1" /></div>&nbsp;&nbsp;<i>Options: K,J,H,A</i>
+		</div>
+		<div class="item text">
+			<label>School:</label>
+			<div class="field"><input type="text" name="hired_school" /></div>
+		</div>
+		
+		<div class="item text">
+			<label>Missing Class:</label>
+			<div class="field"><input type="checkbox" name="hired_missingClass" /></div>
+		</div>
+
+		<div class="button-wrapper">
+			<div class="item button">
+				<div class="field"><input type="button" id="contacts-op-discard" value="Discard" /></div>
+			</div>
+			<div class="item button button-default">
+				<div class="field"><input type="submit" id="contacts-op-save" value="Save" /></div>
+			</div>
+			<div class="item button button-default">
+				<div class="field"><input type="button" id="contacts-op-report" value="Generate Report" onclick="computeMissingList()" /></div>
+			</div>
+		</div>
+		<input type="hidden" name="id_entry" value="0" />
+	</form>
+
+<script language="JavaScript" src="js/teacherPreferences.js" type="text/javascript">
+window.onbeforeunload = function() {
+			  localStorage.removeItem(key);
+			  return '';
+};
+</script>
+
+<script language="JavaScript" src="js/profileOperations.js" type="text/javascript">
+</script>
+
+
+</body-main>
+</html>
